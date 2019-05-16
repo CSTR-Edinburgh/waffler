@@ -168,7 +168,7 @@ Use `./script/submit_cpu.sh` instead of `./script/submit_tf.sh` to run on CPU ra
 
 ### Training and synthesis (multispeaker)
 
-These commands will build and generate from system P0 described in XXX.
+These commands will build and generate from a system comparable to P0 described in the paper.
 
 Modify the first line of the config file `./config/arctic_multispeaker_01.cfg` to point to the full path of your `$WAFFLER` directory. Then:
 
@@ -179,7 +179,7 @@ Modify the first line of the config file `./config/arctic_multispeaker_01.cfg` t
 ```
 
 
-## On the origin of the name *Waffler*
+## The name *Waffler*
 
 ![Origin of Waffler](https://github.com/oliverwatts/waffler/blob/master/media/waffles2.gif "Origin of Waffler")
 

@@ -66,7 +66,7 @@ def process(wavefile, outdir, pattern=''):
     
     data, samplerate = sf.read(wavefile, dtype='int16')
     sf.write(raw_in, data, samplerate, subtype='PCM_16')
-    os.system('%s/sv56demo -log %s -q -lev -26.0 -sf %s %s %s'%(sv56_location, logfile, samplerate, raw_in, raw_out))
+    os.system('%s/sv56demo -log %s -q -lev -26.0 -sf %s %s %s > %s.2'%(sv56_location, logfile, samplerate, raw_in, raw_out, logfile))
     norm_data, samplerate = sf.read(raw_out, dtype='int16', samplerate=samplerate, channels=1, subtype='PCM_16')
     sf.write(wav_out, norm_data, samplerate)
 

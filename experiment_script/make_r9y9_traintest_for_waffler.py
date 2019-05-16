@@ -3,7 +3,7 @@
 
 
 import re, os, sys, glob
-
+from tqdm import tqdm
 
 arctic_download_location = os.path.realpath(os.path.abspath(sys.argv[1]))
 data_output_location=  os.path.realpath(os.path.abspath(sys.argv[2]))
@@ -22,21 +22,19 @@ for line in data:
 
 
 flist = glob.glob(arctic_download_location + '/cmu_us_*_arctic/wav/*wav')
-print flist
-
+print 'Found %s wave files'%(len(flist))
 
 traindir = data_output_location + '/train/wav/'
 testdir = data_output_location + '/test/wav/'
 os.makedirs(traindir)
 os.makedirs(testdir)
 
-for fname in flist:
+for fname in tqdm(flist):
     fname_parts = fname.split('/')
     base = fname_parts[-1].replace('.wav','')
     spkr = fname_parts[-3].replace('cmu_us_','').replace('_arctic','')
     #print (base, spkr)
     if (base, spkr) in testutts:
-        print (base, spkr)
         os.system('ln -s %s %s/%s_%s.wav'%(fname, testdir, base, spkr))
     else:
         os.system('ln -s %s %s/%s_%s.wav'%(fname, traindir, base, spkr))
