@@ -66,24 +66,14 @@ def main_work():
 
     bases = [base for base in bases if os.path.isfile(os.path.join(opts.excdir, base + '.wav'))]
 
-    if opts.multiband_wavdir:
-        bases = [base for base in bases if os.path.isfile(os.path.join(opts.multiband_wavdir, base + '.wav'))]
-
     sample_rate = None ## will be set when first wave is opened, and others checked for consistency
     
-
-    mb_string = ''
-    if opts.multiband_wavdir:
-        mb_string = '_multiband' ## TODO variable n bands?
-    condition_name = 'data_c%s_o%s%s.hdf'%(opts.chunksize, opts.overlap, mb_string)
+    condition_name = 'data_c%s_o%s%s.hdf'%(opts.chunksize, opts.overlap)
     outfile = os.path.join(opts.outdir, condition_name)
 
     f = h5py.File(outfile, 'w')
 
     todo_list = [(opts.wavdir, 'wave'), (opts.excdir, 'excitation')]
-
-    if opts.multiband_wavdir:
-        todo_list.append((opts.multiband_wavdir, 'multiband_wave'))
 
     for (datadir, name) in todo_list:
 
