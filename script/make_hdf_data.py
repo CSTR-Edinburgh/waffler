@@ -68,7 +68,7 @@ def main_work():
 
     sample_rate = None ## will be set when first wave is opened, and others checked for consistency
     
-    condition_name = 'data_c%s_o%s%s.hdf'%(opts.chunksize, opts.overlap)
+    condition_name = 'data_c%s_o%s.hdf'%(opts.chunksize, opts.overlap)
     outfile = os.path.join(opts.outdir, condition_name)
 
     f = h5py.File(outfile, 'w')
