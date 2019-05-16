@@ -106,6 +106,7 @@ rm *.bz2
 
 Split the data into train and test sets (using the same split as the code at `https://github.com/r9y9/wavenet_vocoder`):
 ```
+cd $WAFFLER
 python ./experiment_script/make_r9y9_traintest_for_waffler.py ./database/ ./database/
 ```
 
