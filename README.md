@@ -26,7 +26,7 @@ The instructions below explain how to produce a system comparable to the new sys
 Go to a suitable location and clone repository:
 
 ```
-git clone https://github.com/oliverwatts/waffler.git
+git clone https://github.com/CSTR-Edinburgh/waffler.git
 cd waffler
 WAFFLER=`pwd`
 ```
